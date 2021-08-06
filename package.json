@@ -4,7 +4,7 @@
 	"publisher": "ooooonly",
 	"displayName": "Smali2Java",
 	"description": "Decompile single smali file quickly.",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"license": "SEE LICENSE IN LICENSE",
 	"icon": "res/icon.png",
 	"engines": {
