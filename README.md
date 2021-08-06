@@ -2,6 +2,9 @@
 
 Smali2Java is a vscode extension that allows you to decompile a single `smali` file into Java code, which can be useful especially if you want to check that your modified smali code is correct.
 
+## Install
+https://marketplace.visualstudio.com/items?itemName=ooooonly.smali2java
+
 ## Usage
 
 1. Configure the path to the `jadx` executable in `smali2java.jadxPath`.
