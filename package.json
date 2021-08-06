@@ -1,0 +1,98 @@
+{
+	"name": "smali2java",
+	"author": "ooooonly",
+	"publisher": "ooooonly",
+	"displayName": "Smali2Java",
+	"description": "Decompile single smali file quickly.",
+	"version": "0.0.1",
+	"license": "SEE LICENSE IN LICENSE",
+	"icon": "res/icon.png",
+	"engines": {
+		"vscode": "^1.58.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onLanguage:smali"
+	],
+	"keywords": [
+		"smali",
+		"smali2java",
+		"decompile",
+		"decompiler"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/only52607/smali2java.git"
+	},
+	"homepage": "https://github.com/only52607/smali2java/blob/main/README.md",
+	"bugs": {
+		"url": "https://github.com/only52607/smali2java/issues",
+		"email": "ooooonly@foxmail.com"
+	},
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "smali2java.decompileCurrentSmaliToJava",
+				"title": "Decompile",
+				"shortTitle": "Decompile",
+				"category": "Smali",
+				"enablement": "true"
+			}
+		],
+		"menus": {
+			"editor/title": [
+				{
+					"command": "smali2java.decompileCurrentSmaliToJava",
+					"when": "resourceExtname == .smali || editorLangId == smali",
+					"group": "navigation"
+				}
+			],
+			"editor/context": [
+				{
+					"command": "smali2java.decompileCurrentSmaliToJava",
+					"when": "resourceExtname == .smali || editorLangId == smali",
+					"group": "navigation"
+				}
+			]
+		},
+		"configuration": {
+			"title": "Smali2Java",
+			"properties": {
+				"smali2java.jadxPath": {
+					"type": "string",
+					"default": null,
+					"description": "Specifies the jadx executable path which use to decompile smali."
+				},
+				"smali2java.jadxOptions": {
+					"type": "string",
+					"default": "",
+					"description": "Specifies additional command line arguments required for decompilation."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.58.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.2.2",
+		"@types/node": "14.x",
+		"eslint": "^7.27.0",
+		"@typescript-eslint/eslint-plugin": "^4.26.0",
+		"@typescript-eslint/parser": "^4.26.0",
+		"glob": "^7.1.7",
+		"mocha": "^8.4.0",
+		"typescript": "^4.3.2",
+		"vscode-test": "^1.5.2"
+	}
+}
