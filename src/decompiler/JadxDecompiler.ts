@@ -13,7 +13,7 @@ export class JadxDecompiler implements SmaliDecompiler {
             await fs.unlink(outputFilePath)
         } catch { }
         return new Promise<string>((resolve, reject) => {
-            exec(`${this.jadxPath} "${inputFilePath}" -ds ${this.sourceOutputDir} ${options ?? ""}`, async (err, stdout, stderr) => {
+            exec(`${this.jadxPath} "${inputFilePath}" -ds "${this.sourceOutputDir}" ${options ?? ""}`, async (err, stdout, stderr) => {
                 outputChannel.append(stdout)
                 if (err || stderr.length > 0) {
                     outputChannel.show()
