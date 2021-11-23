@@ -7,7 +7,7 @@ import { promises as fs } from "fs"
 export class JadxDecompiler implements SmaliDecompiler {
     constructor(public jadxPath: String, public sourceOutputDir: string, public smaliClassName: string) { }
     async decompile(inputFilePath: string, outputChannel: OutputChannel, options?: string): Promise<string> {
-        const outputFilePath = join(this.sourceOutputDir, this.smaliClassName + ".java")
+        const outputFilePath = join(this.sourceOutputDir, (this.smaliClassName.includes("/") ? "" : "defpackage/") + this.smaliClassName + ".java")
         try {
             await fs.stat(outputFilePath)
             await fs.unlink(outputFilePath)
