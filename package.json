@@ -3,8 +3,8 @@
 	"author": "ooooonly",
 	"publisher": "ooooonly",
 	"displayName": "Smali2Java",
-	"description": "Decompile single smali file quickly.",
-	"version": "0.0.3",
+	"description": "Decompile single smali file quickly",
+	"version": "0.0.4",
 	"license": "SEE LICENSE IN LICENSE",
 	"icon": "res/icon.png",
 	"engines": {
