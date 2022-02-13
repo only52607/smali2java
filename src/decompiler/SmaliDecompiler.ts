@@ -1,5 +1,12 @@
-import { OutputChannel } from "vscode";
+import { Uri } from "vscode";
 
 export interface SmaliDecompiler {
-    decompile(inputFilePath: string, outputChannel: OutputChannel, options?: any): Promise<string>
+    decompile(smaliFileUri: Uri, options?: any): Promise<Uri>
+}
+
+export class DecompileError extends Error {
+    constructor(msg: string) {
+        super(msg);
+        Object.setPrototypeOf(this, DecompileError.prototype);
+    }
 }
