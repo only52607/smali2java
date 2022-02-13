@@ -4,7 +4,7 @@
 	"publisher": "ooooonly",
 	"displayName": "Smali2Java",
 	"description": "Decompile single smali file quickly",
-	"version": "0.0.4",
+	"version": "0.1.0",
 	"license": "SEE LICENSE IN LICENSE",
 	"icon": "res/icon.png",
 	"engines": {
@@ -36,8 +36,15 @@
 		"commands": [
 			{
 				"command": "smali2java.decompileCurrentSmaliToJava",
-				"title": "Decompile",
+				"title": "Decompile to Java",
 				"shortTitle": "Decompile",
+				"category": "Smali",
+				"enablement": "true"
+			},
+			{
+				"command": "smali2java.clearCache",
+				"title": "Clear decompiled files",
+				"shortTitle": "Clear cache",
 				"category": "Smali",
 				"enablement": "true"
 			}
