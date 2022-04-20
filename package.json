@@ -4,7 +4,7 @@
 	"publisher": "ooooonly",
 	"displayName": "Smali2Java",
 	"description": "Decompile single smali file quickly",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"license": "SEE LICENSE IN LICENSE",
 	"icon": "res/icon.png",
 	"engines": {
@@ -14,7 +14,9 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onLanguage:smali"
+		"onLanguage:smali",
+		"onCommand:smali2java.decompileCurrentSmaliToJava",
+		"onCommand:smali2java.clearCache"
 	],
 	"keywords": [
 		"smali",
