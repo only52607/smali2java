@@ -2,7 +2,12 @@
 
 All notable changes to the "smali2java" extension will be documented in this file.
 
-## [Unreleased]
+## [1.0.0]
+
+### Fixed
+
+- Fixed command not being activated when no SMali language extension is installed
+
 
 ## [0.1.0] - 2022-02-13
 
