@@ -25,6 +25,8 @@ export default (context: ExtensionContext, provider: JavaCodeProvider) => {
     }
     return async (uri: Uri) => window.withProgress(decompileProgressOptions, async (progress: Progress<{ message?: string; increment?: number }>, token: CancellationToken) => {
         try {
+            uri = uri ?? window.activeTextEditor?.document?.uri
+            if (!uri) throw { message: "No active document" }
             const decompiler = decompilerFactory.getSmailDecompiler("jadx")
             const resultUri = await decompiler.decompile(uri)
             showDecompileResult(resultUri, provider)
