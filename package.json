@@ -3,8 +3,8 @@
 	"author": "ooooonly",
 	"publisher": "ooooonly",
 	"displayName": "Smali2Java",
-	"description": "Decompile single smali file quickly",
-	"version": "1.0.1",
+	"description": "Decompile single smali file instantly",
+	"version": "1.1.0",
 	"license": "SEE LICENSE IN LICENSE",
 	"icon": "res/icon.png",
 	"engines": {
@@ -14,9 +14,7 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onLanguage:smali",
-		"onCommand:smali2java.decompileCurrentSmaliToJava",
-		"onCommand:smali2java.clearCache"
+		"onLanguage:smali"
 	],
 	"keywords": [
 		"smali",
@@ -37,11 +35,15 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "smali2java.decompileCurrentSmaliToJava",
-				"title": "Decompile to Java",
+				"command": "smali2java.decompileThisFile",
+				"title": "Decompile This File",
 				"shortTitle": "Decompile",
 				"category": "Smali",
-				"enablement": "true"
+				"enablement": "true",
+				"icon": {
+					"dark": "./res/dark/decompile.svg",
+					"light": "./res/light/decompile.svg"
+				}
 			},
 			{
 				"command": "smali2java.clearCache",
@@ -54,14 +56,14 @@
 		"menus": {
 			"editor/title": [
 				{
-					"command": "smali2java.decompileCurrentSmaliToJava",
+					"command": "smali2java.decompileThisFile",
 					"when": "resourceExtname == .smali || editorLangId == smali",
 					"group": "navigation"
 				}
 			],
 			"editor/context": [
 				{
-					"command": "smali2java.decompileCurrentSmaliToJava",
+					"command": "smali2java.decompileThisFile",
 					"when": "resourceExtname == .smali || editorLangId == smali",
 					"group": "navigation"
 				}
@@ -70,15 +72,15 @@
 		"configuration": {
 			"title": "Smali2Java",
 			"properties": {
-				"smali2java.jadxPath": {
+				"smali2java.decompiler.jadx.path": {
 					"type": "string",
 					"default": null,
-					"description": "Specifies the jadx executable path which use to decompile smali."
+					"description": "Path to jadx (or jadx.bat for windows)."
 				},
-				"smali2java.jadxOptions": {
+				"smali2java.decompiler.jadx.options": {
 					"type": "string",
 					"default": "",
-					"description": "Specifies additional command line arguments required for decompilation."
+					"description": "Options used to run jadx decompilation command (will be appended directly to the end of the command)."
 				}
 			}
 		}
