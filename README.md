@@ -1,4 +1,4 @@
-# Smali2Java ![vscode](https://vsmarketplacebadge.apphb.com/version/ooooonly.smali2java.svg)
+# Smali2Java
 
 Smali2Java is a vscode extension that allows you to decompile a single `smali` file into Java code, which can be useful especially if you want to check that your modified smali code is correct.
 
