@@ -41,8 +41,8 @@
 				"category": "Smali",
 				"enablement": "true",
 				"icon": {
-					"dark": "./res/dark/decompile.svg",
-					"light": "./res/light/decompile.svg"
+					"dark": "./res/dark/decompile.png",
+					"light": "./res/light/decompile.png"
 				}
 			},
 			{
