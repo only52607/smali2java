@@ -2,6 +2,12 @@
 
 All notable changes to the "smali2java" extension will be documented in this file.
 
+## [1.1.1]
+
+### Fixed
+
+Fixed unexpected character escaping in the path when executing shell commands.
+
 ## [1.1.0]
 
 ### Changes
