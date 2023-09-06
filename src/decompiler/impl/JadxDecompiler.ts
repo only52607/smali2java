@@ -40,7 +40,7 @@ export class JadxDecompiler implements SmaliDecompiler {
         if (!config.path) throw new DecompileError("The jadx executable path has not been configured")
         if (!(await fsAsync.stat(config.path)).isFile()) throw new DecompileError("Illegal jadx executable path")
         const outputFilePath = this.getOutputFilePath(smaliClassName)
-        const { stdout, stderr } = await execAsync(`${await config.path} "${smaliFileUri.fsPath}" -ds "${this.sourceOutputDir}" ${config.options ?? ""}`)
+        const { stdout, stderr } = await execAsync(`${await config.path} ${this.quote(smaliFileUri.fsPath)} -ds ${this.quote(this.sourceOutputDir)} ${config.options ?? ""}`)
         this.outputChannel.append(stdout)
         if (stderr && stderr.length > 0) {
             this.outputChannel.show()
@@ -56,5 +56,12 @@ export class JadxDecompiler implements SmaliDecompiler {
             scheme: JavaCodeProvider.scheme,
             path: outputFilePath
         })
+    }
+
+    private quote(str: string) {
+        if (process.platform == "win32") {
+            return `"${str}"`
+        }
+        return `'${str}'`
     }
 }
