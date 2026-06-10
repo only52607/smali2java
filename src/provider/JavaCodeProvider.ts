@@ -12,7 +12,7 @@ export default class JavaCodeProvider implements TextDocumentContentProvider {
     }
 
     async provideTextDocumentContent(uri: Uri): Promise<string> {
-        const buffer = await fs.readFile(uri.path)
+        const buffer = await fs.readFile(uri.fsPath)
         return buffer.toString()
     }
 }
